@@ -1,4 +1,5 @@
-##March 2018 - Challenge
+#March 2018 - Challenge
+
 https://www.research.ibm.com/haifa/ponderthis/challenges/March2018.html
 
 Alice and Bob are given an interesting challenge. Alice will be given a random vowel (A, E, I, O, or U) in a room without Bob with six randomly set toggle (on/off) switches. She may change the state of at most one switch and then leave the room without talking to Bob. Bob must then enter the room and discover the secret vowel Alice was given.
