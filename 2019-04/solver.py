@@ -1,8 +1,6 @@
 from docplex.mp.model import Model as MipModel
 from itertools import combinations
 
-model = MipModel("ponder-april")
-
 def primes(lower, upper):
     primes = []
     for num in range(lower,upper + 1):
@@ -15,7 +13,7 @@ def primes(lower, upper):
     return primes
 
 def main():
-    prime_numbers = primes(0,300) # Consider all prime numbers between 0 and 100
+    prime_numbers = primes(0,100) # Consider all prime numbers between 0 and 100
     square_size = 3 # Consider squares with size 3x3
 
     model = MipModel("ponder-april")
@@ -48,7 +46,7 @@ def main():
                 if sum(comb)/len(diagonal) != int(sum(comb)/len(diagonal)) or int(sum(comb)/len(diagonal)) not in prime_numbers:
                     model.add(model.sum(variables[(i,j,pi)] for i,j in diagonal for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= len(diagonal) - 1)
 
-	# Optional, not part of the original problem statement
+    # Optional, not part of the original problem statement
     # The average of all 2x2 squares also needs to be a prime number
 #     for comb in combinations(prime_numbers, 2):
 #         if sum(comb)/2 != int(sum(comb)/2) or int(sum(comb)/2) not in prime_numbers:
