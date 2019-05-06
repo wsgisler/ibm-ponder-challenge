@@ -48,31 +48,32 @@ def main():
                 if sum(comb)/len(diagonal) != int(sum(comb)/len(diagonal)) or int(sum(comb)/len(diagonal)) not in prime_numbers:
                     model.add(model.sum(variables[(i,j,pi)] for i,j in diagonal for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= len(diagonal) - 1)
 
+	# Optional, not part of the original problem statement
     # The average of all 2x2 squares also needs to be a prime number
-    for comb in combinations(prime_numbers, 2):
-        if sum(comb)/2 != int(sum(comb)/2) or int(sum(comb)/2) not in prime_numbers:
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,0),(0,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,0),(1,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(2,0),(2,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,1),(0,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,1),(1,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(2,1),(2,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,0),(1,0)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,1),(1,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,2),(1,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1)  
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,0),(2,0)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,1),(2,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,2),(2,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1)  
-
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,0),(1,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,0),(0,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,1),(1,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1)  
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,1),(2,0)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,0),(2,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(2,0),(1,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,1),(2,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
-            model.add(model.sum(variables[(i,j,pi)] for i,j in [(2,1),(1,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1)  
+#     for comb in combinations(prime_numbers, 2):
+#         if sum(comb)/2 != int(sum(comb)/2) or int(sum(comb)/2) not in prime_numbers:
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,0),(0,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,0),(1,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(2,0),(2,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,1),(0,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,1),(1,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(2,1),(2,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+# 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,0),(1,0)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,1),(1,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,2),(1,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1)  
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,0),(2,0)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,1),(2,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,2),(2,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1)  
+# 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,0),(1,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,0),(0,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(0,1),(1,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1)  
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,1),(2,0)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,0),(2,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(2,0),(1,1)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(1,1),(2,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1) 
+#             model.add(model.sum(variables[(i,j,pi)] for i,j in [(2,1),(1,2)] for pi,pnum in enumerate(prime_numbers) if pnum in comb) <= 1)  
     
     # Solve the model
     #model.minimize(model.sum(variables[(i,j,pi)]*pnum for i in range(square_size) for j in range(square_size) for pi,pnum in enumerate(prime_numbers)))
